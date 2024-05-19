@@ -1,0 +1,362 @@
+# ╭────────────────────────────────────────────────────────────────────────────────────────────────╮
+# │  ACTION REQUIRED: REVIEW AND EDIT THIS FILE TO ENSURE IT ACCURATELY REFLECTS YOUR PROJECT!     ││                                                                                                │
+# ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+# ╭────────────────────────ImplementationGuide-hl7.fhir.us.davinci-pdex.json───────────────────────╮
+# │  The properties below are used to create the ImplementationGuide resource. For a list of       │
+# │  supported properties, see:                                                                    │
+# │  http://build.fhir.org/ig/HL7/fhir-shorthand/branches/beta/sushi.html#ig-development           │
+# ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
+id: hl7.fhir.us.davinci-pdex
+canonical: http://hl7.org/fhir/us/davinci-pdex
+version: 2.1.0
+name: BabbagePayerDataExchange
+title: Babbage Payer Data Exchange
+status: active  # draft | active | retired | unknown
+
+publisher:
+  name: Arkwright Carding Engines
+  url: http://www.example.com
+  email: guest@your.net
+contact:
+  - name: "Dave Pyke"
+    telecom:
+      - system: email
+        value: "mailto:David@pyke.ca"
+  
+description: "Payer and Provider Data Exchange for your Babbage Engine"
+copyright: >-
+  Creative Commons License
+license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
+fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
+dependencies:
+  hl7.fhir.us.core:
+    version: 6.1.0
+    uri: http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core
+    id: uscore6
+    reason: |
+      Defines USCDI 3 resources that will be exposed by PDex APIs.
+  hl7.fhir.us.davinci-hrex:
+    version: current
+    id: hrex
+    reason: |
+      Defines common conformance rules across all Da Vinci IGs, as well as additional constraints and profiles beyond U.S. Core
+  hl7.fhir.us.davinci-pas: 2.0.1
+  hl7.fhir.us.davinci-atr: 2.0.0
+  hl7.fhir.us.ndh: 1.0.0-ballot
+  hl7.fhir.us.davinci-dtr: 2.0.0
+  hl7.fhir.uv.extensions: 5.1.0-ballot1
+  hl7.terminology.r4: 5.5.0
+parameters:
+  show-inherited-invariants: false
+  path-expansion-params: ../../input/expansion-params.json
+  apply-jurisdiction: true
+  apply-publisher: true
+  generate: example-narratives
+  path-pages:
+    - input/pagecontent
+    - input/intro-notes
+copyrightYear: 2024+
+releaseLabel: ci-build
+extension:
+  - url: "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
+    valueCode: fm
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+    valueCode: trial-use
+pages:
+  index.md:
+    title: Home
+    extension:
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
+  ImplementationGuide-hl7.fhir.us.davinci-pdex.md:
+    title: PDex Implementation Guide
+    extension:
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
+  overview.md:
+    title: Overview
+    extension:
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
+  introduction.md:
+    title: Introduction
+    extension:
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
+  securityandprivacy.md:
+    title: Security and Privacy
+    extension:
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
+  pdeximplementationactorsinteractionsdatapayloadsandmethods.md:
+    title: PDex Implementation, Actors, Interactions, Data Payloads and Methods
+    extension:
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
+    handlingdataprovenance.md:
+      title: Handling Data Provenance
+      extension:
+        - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+          valueCode: informative
+    provider-access-api.md:
+      title: Provider Access API
+      extension:
+        - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+          valueCode: informative
+    payertopayerexchange.md:
+      title: Payer-to-Payer Exchange (single member)
+      extension:
+        - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+          valueCode: informative
+    payertopayerbulkexchange.md:
+      title: Payer-to-Payer Exchange (bulk)  
+      extension:
+        - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+          valueCode: informative
+    datamapping.md:
+      title: Data Mapping
+      extension:
+        - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+          valueCode: informative
+      capability-statements.md:
+        title: Capability Statements
+        extension:
+          -   url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+              valueCode: informative
+      USCoreAllergyIntolerance.md:
+        title: US Core AllergyIntolerance
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCoreCarePlan.md:
+        title: US Core CarePlan
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCoreCareTeam.md:
+        title: US Core CareTeam
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCoreCondition.md:
+        title: US Core Condition
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      coverage.md:
+        title: Coverage
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      PdexDevice.md:
+        title: PDex Device
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCoreDiagnosticReportforLaboratoryResultsReporting.md:
+        title: US Core DiagnosticReport for Laboratory Results Reporting
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCoreDiagnosticReportforReportandNoteExchange.md:
+        title: US Core DiagnosticReport for Report and Note Exchange
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCoreDocumentReference.md:
+        title: US Core DocumentReference
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCoreEncounter.md:
+        title: US Core Encounter
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCoreGoal.md:
+        title: US Core Goal
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCoreImmunization.md:
+        title: US Core Immunization
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCoreImplantableDevice.md:
+        title: US Core ImplantableDevice
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCoreLaboratoryResultObservation.md:
+        title: US Core Laboratory Result Observation
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCoreLocation.md:
+        title: US Core Location
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCoreMedication.md:
+        title: US Core Medication
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      PDexMedicationDispense.md:
+        title: PDex MedicationDispense
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCoreMedicationRequest.md:
+        title: US Core MedicationRequest
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCoreOrganization.md:
+        title: US Core Organization
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCorePatient.md:
+        title: US Core Patient
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCorePediatricBMIforAgeObservation.md:
+        title: US Core Pediatric BMI for Age Observation
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCorePediatricHeadOccipital.md:
+        title: US Core Pediatric Head Occipital-frontal Circumference Observation
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCorePediatricWeightforHeightObservation.md:
+        title: US Core Pediatric Weight for Height Observation
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCorePractitioner.md:
+        title: US Core Practitioner
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCorePractitionerRole.md:
+        title: US Core PractitionerRole
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      PDexPriorAuthorization.md:
+        title: PDex Prior Authorization
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCoreProcedure.md:
+        title: US Core Procedure
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      PDexProvenance.md:
+        title: PDex Provenance
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCoreProvenance.md:
+        title: US Core Provenance
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCorePulseOximetry.md:
+        title: US Core Pulse Oximetry
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      USCoreSmokingStatusObservation.md:
+        title: US Core Smoking Status Observation
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+      VitalSigns.md:
+        title: VitalSigns
+        extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: informative
+  usecasescenarios.md:
+    title: Use Case Scenarios
+    extension:
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
+  provider-controlledinformationrequestsandfiltering.md:
+    title: Provider-controlled Information Requests and Filtering
+    extension:
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
+  cds-hooks.md:
+    title: CDS Hooks
+    extension:
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
+    workflowexamples.md:
+      title: Workflow Examples
+      extension:
+        - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+          valueCode: informative
+  member-authorizedoauth2exchange.md:
+    title: Member-Authorized OAuth2.0 Exchange
+    extension:
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
+  changehistory.md:
+    title: Change History
+    extension:
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
+  credits.md:
+    title: Credits
+    extension:
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
+  Downloads.md:
+    title: Downloads
+    extension:
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
+  artifacts.html:
+    title: FHIR Artifacts
+    extension:
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
+  other-igs.md:
+    title: Other IG Artifacts
+    extension:
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
+
+
+# ╭────────────────────────────────────────────menu.xml.ignore────────────────────────────────────────────╮
+# │  To use a provided ig-data/input/includes/menu.xml.ignore file, delete the "menu" property below.     │
+# ╰───────────────────────────────────────────────────────────────────────────────────────────────────────╯
+menu:
+  Home: index.html
+  Table of Contents: toc.html
+  PDex IG Content: #pdeximplementationactorsinteractionsdatapayloadsandmethods.html
+    Overview: overview.html
+    Introduction: introduction.html
+    Provider Access: provider-access-api.html
+    Payer-to-Payer(bulk): payertopayerbulkexchange.html
+    Payer-to-Payer(single): payertopayerexchange.html
+    Data Mapping: datamapping.html
+    CDS Hooks: cds-hooks.html
+    Change Log: changehistory.html
+    Credits: credits.html
+  FHIR Artifacts: artifacts.html
+  Other IG Artifacts: other-igs.html
+  Support:
+    Project Home: new-tab https://confluence.hl7.org/pages/viewpage.action?pageId=116462704
+    Discussion Forum: new-tab https://chat.fhir.org/#narrow/stream/235286-Da-Vinci-PDex
+    Propose a Change: new-tab http://hl7.org/fhir-issues
+    Downloads: Downloads.html
+  Change History:   changehistory.html
